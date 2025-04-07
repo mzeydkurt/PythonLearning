@@ -152,3 +152,65 @@ bnk1.para_cek(24323)
 bnk1.kalan_para()
 bnk1.havale(1234, "Zeyd")
 bnk1.kalan_para()"""
+
+
+# QUİZ DENEMSİ SORUSU 
+class Calisan:
+    calisan_listesi = []  # Tüm çalışanların isimlerini tutar
+    sigorta_puani = 25    # Başlangıç sigorta puanı
+
+    def __init__(self, isim, cinsiyet, maas):
+        # Çalışanın temel bilgileri atanıyor
+        self.isim = isim
+        self._cinsiyet = cinsiyet
+        self.maas = maas
+        # Yeni çalışan ismi listeye ekleniyor
+        Calisan.calisan_listesi.append(self.isim)
+
+    @classmethod
+    def personeli_goruntule(cls):
+        # Tüm çalışanları listeler
+        print("Personel listesi yazdırılıyor!")
+        print(cls.calisan_listesi)
+
+    def personel_ekle(self, ad):
+        # Yeni bir isim manuel olarak çalışan listesine eklenir
+        Calisan.calisan_listesi.append(ad)
+
+    def sigorta_yatirim(self):
+        # Sigorta puanı artırılır
+        Calisan.sigorta_puani += 15
+        print(f"Sigorta puanı: {Calisan.sigorta_puani}")
+
+    @staticmethod
+    def ifade_et(ozellik):
+        # Statik metot: herhangi bir nesneye bağlı olmadan çalışır
+        print(f"Personelin yeteneği: {ozellik}")
+
+""" sonradan eklenen kısım kendim
+    def zam_yap(self, oran):
+        # Maaşa verilen oran kadar zam yapılır
+        # Örn: oran = 0.10 ise %10 zam yapılır
+        eski_maas = self.maas
+        self.maas += self.maas * oran
+        print(f"{self.isim} adlı çalışanın maaşı {eski_maas} TL'den {self.maas} TL'ye yükseltildi.")
+
+    def cinsiyet_guncelle(self, yeni_cinsiyet):
+        # Cinsiyet bilgisi güncellenir
+        self._cinsiyet = yeni_cinsiyet
+        print(f"{self.isim} adlı çalışanın cinsiyeti güncellendi: {self._cinsiyet}")
+
+    def bilgi_goster(self):
+        # Çalışanın tüm bilgileri yazdırılır
+        print(f"İsim: {self.isim}")
+        print(f"Cinsiyet: {self._cinsiyet}")
+        print(f"Maaş: {self.maas} TL")"""
+
+
+# Örnek kullanım:
+calisan1 = Calisan("Ahmet", "Erkek", 5000)
+
+calisan1.bilgi_goster()          # Tüm bilgileri yazdırır
+calisan1.zam_yap(0.15)           # %15 zam yapar
+calisan1.cinsiyet_guncelle("Diğer")  # Cinsiyet günceller
+calisan1.bilgi_goster()          # Güncellenmiş bilgileri tekrar gösterir
